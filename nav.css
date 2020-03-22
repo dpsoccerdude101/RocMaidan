@@ -5,8 +5,16 @@
   --bg-color: #06065b;
   --bg-color-light: rgba(6, 6, 91, 0.75);
   --bg-yellow: rgba(249, 195, 0, 1);
+  --footer: #eee;
   --bg-light-yellow: rgba(249, 195, 0, 0.75);
-  --bg-main: #f0ead6;
+  --bg-main: white;
+  /* #f0ead6 */
+  --drop-shadow: rgba(0, 0, 0, 0.3);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+html {
+  scroll-behavior: smooth;
 }
 * {
   box-sizing: border-box;
@@ -24,7 +32,15 @@ button {
   color: var(--header-font-color);
   text-decoration: none;
 }
-h2 {
+.banner-text h2 {
+  font-size: 4vw;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: var(--header-font-color);
+  text-decoration: none;
+}
+.banner-text h1 {
+  font-size: 6vw;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: var(--header-font-color);
@@ -46,21 +62,30 @@ main {
   text-decoration: none;
 }
 header {
+  position: absolute;
+  top: 0;
+  width: 100%;
   overflow: hidden;
   z-index: 1;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 0px 4%;
-  background-color: var(--bg-color);
+  /* background-color: var(--bg-color); */
+  text-shadow: 1px 1px 2px black;
 }
 .sticky {
   position: fixed;
   top: 0;
-  width: 100%;
+  background-color: var(--bg-color);
+  transition: top 0.3s ease-in-out;
+}
+.invisible {
+  top: -93px;
+  transition: top 0.5s ease-in-out;
 }
 .sticky + main {
-  padding-top: 83px;
+  /* padding-top: 83px; */
 }
 img {
   max-width: 100%;
@@ -176,9 +201,9 @@ i {
 .banner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
     url("https://www.rocmaidan.org/website%20build/denys-rodionenko-G__p-KB1bj4-unsplash.jpg");
-
-  height: 70vh;
-  background-position: center;
+  /* url("https://raw.githubusercontent.com/dpsoccerdude101/dpsoccerdude101.github.io/master/RocMaidan/banner.jpg"); */
+  height: 75vh;
+  background-position: 50% 20%;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -194,6 +219,8 @@ i {
 }
 .banner-text {
   text-align: center;
+  text-shadow: 1px 1px 2px black;
+  /*
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -201,15 +228,22 @@ i {
   align-items: center;
   align-self: center;
   justify-self: center;
-  -ms-flex-align: center;
-  height: 125px;
+  -ms-flex-align: center; */
+  /* height: 125px; */
   /*   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); */
 }
 #donate-banner {
-  font-size: 22px;
+  font-size: 2vw;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid white;
+  padding: 4px 12.5px;
+  border-radius: 25px;
+}
+#donate-banner:hover {
+  background-color: rgba(0, 0, 0, 0.25);
 }
 #rocMaidanSquareLogo {
   width: 65px;
@@ -223,10 +257,38 @@ i {
   justify-content: center;
   background-color: gray;
   height: 3em;
+  background-color: var(--footer);
+}
+.flex-footer * {
+  color: #999;
+  text-align: center;
+}
+.flex-footer i {
+  font-size: 4vw;
+}
+.flex-footer .fa-facebook-official {
+  color: #4267b2;
+}
+.flex-footer .fa-twitter-square {
+  color: #1da1f2;
+}
+.flex-footer .fa-instagram {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .ufcu-div {
   height: auto;
-  width: 181px;
+  width: 20vw;
+  grid-area: ufcu;
+  margin: auto auto;
 }
 .ufcu-logo {
   max-width: 100%;
@@ -234,18 +296,14 @@ i {
 }
 .unwla-div {
   height: auto;
-  width: 181px;
+  width: 6vw;
 }
 .unwla-logo {
   max-width: 100%;
   height: auto;
 }
-.ucc-logo {
-  max-width: 100%;
-  height: auto;
-}
 .article {
-  padding-top: 10vh;
+  padding: 10vh 0;
   /* padding-bottom: 10vh; */
   display: grid;
   grid-template-columns: repeat(44, 1fr);
@@ -260,6 +318,7 @@ i {
   grid-row-end: -1;
   grid-column-start: 4;
   grid-column-end: 33;
+  filter: drop-shadow(2px 2px 20px var(--drop-shadow));
 }
 .our-mission-div {
   height: auto;
@@ -269,6 +328,7 @@ i {
   grid-row-end: -1;
   grid-column-start: 13;
   grid-column-end: 42;
+  filter: drop-shadow(2px 2px 20px var(--drop-shadow));
 }
 .our-mission-box {
   height: inherit;
@@ -284,6 +344,7 @@ i {
   justify-content: center;
   padding: 1em;
   background-color: white;
+  filter: drop-shadow(2px 2px 20px var(--drop-shadow));
 }
 .article-img {
   max-width: 100%;
@@ -303,6 +364,7 @@ i {
   justify-content: center;
   padding: 1em;
   background-color: white;
+  filter: drop-shadow(2px 2px 20px var(--drop-shadow));
 }
 .article-paragraph {
   margin-top: 1em;
@@ -315,27 +377,121 @@ i {
 }
 .learn-more {
   font-size: 1.125vw;
-  padding: 0.25em;
+  padding: 0.5em;
   margin-left: auto;
 }
 .ucc-div {
+  height: auto;
+  width: 7vw;
+}
+.ucc-logo {
+  max-width: 100%;
+  height: auto;
+}
+.partners-grid {
+  height: inherit;
+  max-width: 33vw;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 3fr;
+  grid-template-areas:
+    "ourPartners ourPartners "
+    "uccUnwlaFlex ufcu";
+  /* background-color: #f5f5f5; */
+}
+#our-partners {
+  grid-area: ourPartners;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  text-decoration: underline;
+  /* filter: drop-shadow(1px 1px 2px var(--drop-shadow)); */
+}
+.ucc-unwla-flex {
+  grid-area: uccUnwlaFlex;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.contact-us {
+  font-size: 1.5vw;
+  color: var(--header-font-color);
+  border: 2px solid gray;
+  /*   margin-bottom: auto;
+  margin-top: 1.5vw;
+  margin-top: calc(auto / 2); */
+  white-space: nowrap;
+}
+.footer-links {
+  list-style: none;
+}
+.middle-foot {
+  position: relative;
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   justify-content: center;
-  align-items: center;
-  width: 180px;
 }
-.ucc-div-img {
-  height: auto;
-  width: 120px;
-}
-.ucc-social {
-  padding: 0 1em;
+/* #social-footer {
+  margin-bottom: auto;
+} */
+.sub-footer {
+  color: #888;
+  background-color: rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  padding: 0 1vw;
+  font-size: 1.5vw;
+}
+.sub-footer p {
+  display: inline;
+  margin-right: auto;
+}
+.sub-footer span {
+  display: inline;
+}
+.legal {
+  max-width: 25vw;
+}
+.legal * {
+  text-align: left;
+}
+.contact-us-form {
+  width: 40%;
+  max-width: 600px;
+  padding: 30px 40px;
+  text-align: center;
+  box-shadow: 2px 2px 20px var(--drop-shadow);
+  margin: 0 auto;
+  background-color: var(--bg-yellow);
+  border: calc(1rem/6) solid var(--bg-color);
+}
+.contact-us-form h1 {
+  margin-top: 0;
+  font-weight: 200;
+}
+.contact-us-form div {
+  border: calc(1rem/12) solid gray;
+  margin: 0.75rem 0;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+}
+.contact-us-form div label {
+  display: block;
+  text-align: left;
+  color: #333;
+  text-transform: uppercase; 
+}
+.contact-us-form input, .contact-us-form textarea {
+  width: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
 }
 @media screen and (max-width: 1024px) {
   .banner {
@@ -391,6 +547,12 @@ i {
   header {
     padding: 0% 4%;
     height: 91.5px;
+    position: fixed;
+    top: 0;
+  }
+  .invisible {
+    top: 0;
+    transition: 0.5s ease-in-out;
   }
   .flex-list {
     box-shadow: inset 0px 1px white;
@@ -402,7 +564,7 @@ i {
     overflow: hidden;
     top: 91.5px;
     right: 0px;
-    background-color: var(--bg-color);
+    background-color: rgba(0, 0, 0, 0.8);
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-end;
@@ -445,6 +607,12 @@ i {
     height: 0;
     overflow: hidden;
   }
+  .flex-list li > a {
+    text-shadow: 1px 1px 2px black;
+  }
+  .flex-list.stickyFlex {
+    background-color: var(--bg-color);
+  }
   #social a {
     font-size: 2em;
     /* margin-right: auto; */
@@ -471,7 +639,7 @@ i {
     width: 40px;
   }
   .article {
-    padding-top: 6vh;
+    padding: 6vh 0;
     display: flex;
     flex-direction: column;
   }
@@ -506,5 +674,24 @@ i {
   }
   #help-ukraine {
     display: block;
+  }
+  .banner-text h2 {
+    font-size: 8vw;
+  }
+  .banner-text h1 {
+    font-size: 12vw;
+  }
+  #donate-banner {
+    font-size: 4vw;
+  }
+  .sub-footer {
+    text-align: center;
+    font-size: 6vw;
+    flex-direction: column;
+    align-items: center;
+    margin: auto 0;
+  }
+  .sub-footer p {
+    margin: 0;
   }
 }
