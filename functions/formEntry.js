@@ -1,3 +1,4 @@
+import nodemailer from 'nodemailer';
 const nodemailer = require("nodemailer");
 let transport = nodemailer.createTransport({
   host: "smtp.mailtrap.io",
