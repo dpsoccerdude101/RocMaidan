@@ -21,18 +21,17 @@ window.onscroll = function() {
   stickyNav();
   closeInvisibleNav();
 };
- window.onload = function() {
+window.onload = function() {
   // setCopyright();
-}
+};
 function stickyNav() {
   if (window.pageYOffset >= sticky) {
     header.classList.add("sticky");
     header.classList.remove("invisible");
     flexList.classList.add("stickyFlex");
-  } 
-  else {
+  } else {
     header.classList.remove("sticky");
-    flexList.classList.remove("stickyFlex")
+    flexList.classList.remove("stickyFlex");
   }
 }
 function closeInvisibleNav() {
@@ -47,3 +46,12 @@ function closeInvisibleNav() {
 /* function setCopyright() {
   (document.getElementById("copyright-year")).write(new Date().getFullYear());
 } */
+
+function sendForm(e) {
+  let contactUsForm = document.querySelector("form.contact-us-form");
+  let formData = new FormData(contactUsForm);
+  for (let elem of formData.entries()) {
+    console.log(elem);
+  }
+  console.log(formData.entries());
+}

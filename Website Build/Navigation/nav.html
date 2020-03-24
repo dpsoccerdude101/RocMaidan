@@ -187,13 +187,14 @@
         </div>
       </section> -->
     </main>
-    <form action="#" class="contact-us-form" name="contact-us-form">
+    <form action=""; class="contact-us-form" name="contact-us-form" onsubmit="event.preventDefault();sendForm();">
       <h1>Contact Us</h1>
       <div>
         <label for="contact-us-form" class="name"
           >Full Name:<input
             type="text"
             class="name-field"
+            name="fullName"
             placeholder="Enter Your Name"
             required
         /></label>
@@ -202,7 +203,7 @@
         <label for="contact-us-form" class="email"
           >Email:<input
             type="email"
-            name=""
+            name="email"
             id=""
             class="email-field"
             placeholder="Enter Your Email"
