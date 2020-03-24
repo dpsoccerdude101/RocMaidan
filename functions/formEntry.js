@@ -1,6 +1,7 @@
 exports.handler = function(event, context, callback) {
-    callback(null, {
+  console.log("Yeah this ran");
+  callback(null, {
     statusCode: 200,
     body: "Hello, World"
-    });
-}
+  });
+};
