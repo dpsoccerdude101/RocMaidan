@@ -2,6 +2,7 @@ const burger = document.querySelector("div.burger");
 const flexList = document.querySelector(".flex-list");
 const navLinks = document.querySelector(".nav-links");
 const header = (document.getElementsByTagName("header"))[0];
+let collin = "coolGuyAtWegmans";
 let sticky = header.offsetTop;
 burger.addEventListener("click", () => {
   if (flexList.classList.contains("open")) {
